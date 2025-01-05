@@ -1,32 +1,24 @@
-safes = 0
+def main():
+    safes = 0
 
-with open("input.txt", "r") as file:
-    lines = file.read().strip().split("\n")
+    with open("input.txt", "r") as file:
+        lines = file.read().strip().split("\n")
 
-for line in lines:
-    index = 0
-    safe = True
-    nums = list(map(int, line.split()))
-    is_sorted = nums == sorted(nums) or nums == sorted(nums, reverse=True)
+    for line in lines:
+        nums = list(map(int, line.split()))
+        safes += 1 if safe(nums, 1) or safe(nums[::-1], 1) else 0
 
-    for i in range(len(nums)-1):
-        diff = abs(nums[i+1] - nums[i])
+    print(safes)
+
+
+def safe(data, tries=0):
+    print(data)
+
+    for i in range(len(data)-1):
+        diff = data[i] - data[i+1]
         if not 1 <= diff <= 3:
-            safe = False
-            index = i
-            break
+            return tries and any(safe(data[j-1:j] + data[j+1:]) for j in (i, i+1))
+    return True
 
-    if not safe:
-        safe = True
-        nums.remove(nums[index])
-        is_sorted = nums == sorted(nums) or nums == sorted(nums, reverse=True)
-        for i in range(len(nums)-1):
-            diff = abs(nums[i+1] - nums[i])
-            if not 1 <= diff <= 3:
-                safe = False
-
-
-    if safe and is_sorted:
-        safes += 1
-
-print(safes)
+if __name__ == "__main__":
+    main()
