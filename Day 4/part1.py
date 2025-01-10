@@ -20,7 +20,9 @@ def check_vertical(lines):
 
 
 def check_diagonal(lines):
-    ...
+    for i in range(lines[0]):
+        for j in range(len(lines)):
+            if lines[]
 
 
 def main():
