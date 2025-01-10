@@ -1,5 +1,3 @@
-### Work in progress
-
 def x_max(lines):
     ret = 0
     for i in range(len(lines)-1)[1:]:
