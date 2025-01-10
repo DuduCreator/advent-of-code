@@ -1,16 +1,20 @@
+### Work in progress
+
 def x_max(lines):
-    for i, line in enumerate(lines):
-        for j, char in enumerate(line):
+    ret = 0
+    for i in range(len(lines)-1)[1:]:
+        for j in range(len(lines[0])-1)[1:]:
             if char == "A" and ((lines[i-1][j-1] == "M" and lines[i+1][j+1] == "S") or (lines[i-1][j-1] == "S" and lines[i+1][j+1] == "M")) \
-            and ((lines[i-1][j+1] == "M" and lines[i+1][j-1] == "S") or (lines[i-1][j+1] == "D" and lines[i+1][j-1] == "M")):
-                return 1
+            and ((lines[i-1][j+1] == "M" and lines[i+1][j-1] == "S") or (lines[i-1][j+1] == "S" and lines[i+1][j-1] == "M")):
+                ret += 1
+    return ret
 
 
 def main():
     with open("input.txt", "r") as file:
         lines = file.read().strip().split("\n")
 
-        print(sum(x_max))
+    print(x_max(lines))
 
 
 if __name__ == "__main__":
