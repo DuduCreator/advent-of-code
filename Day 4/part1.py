@@ -30,9 +30,9 @@ def check_diagonal(lines):
                 ret += 1
             if i + 3 < len(lines[0]) and lines[j][i] == "S" and lines[j+1][i+1] == "A" and lines[j+2][i+2] == "M" and lines[j+3][i+3] == "X":
                 ret += 1
-            if i - 3 > 0 and lines[j][i] == "X" and lines[j+1][i-1] == "M" and lines[j+2][i-2] == "A" and lines[j+3][i-3] == "S":
+            if i - 3 >= 0 and lines[j][i] == "X" and lines[j+1][i-1] == "M" and lines[j+2][i-2] == "A" and lines[j+3][i-3] == "S":
                 ret += 1
-            if i - 3 > 0 and lines[j][i] == "S" and lines[j+1][i-1] == "A" and lines[j+2][i-2] == "M" and lines[j+3][i-3] == "X":
+            if i - 3 >= 0 and lines[j][i] == "S" and lines[j+1][i-1] == "A" and lines[j+2][i-2] == "M" and lines[j+3][i-3] == "X":
                 ret += 1
     return ret
 
