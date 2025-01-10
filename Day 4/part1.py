@@ -20,9 +20,12 @@ def check_vertical(lines):
 
 
 def check_diagonal(lines):
-    for i in range(lines[0]):
+    ret = 0 
+    for i in range(len(lines[0])):
         for j in range(len(lines)):
-            if lines[]
+            if lines[j][i] == "X" and lines[j+1][i+1] == "M" and lines[j+2][i+2] == "M" and lines[j+3][i+3] == "A" and lines[j+4][i+4] == "S":
+                ret += 1
+    return ret
 
 
 def main():
@@ -32,6 +35,7 @@ def main():
 
     ans += check_horizontal(lines)
     ans += check_vertical(lines)
+    ans += check_diagonal(lines)
     print(ans)
 
 
